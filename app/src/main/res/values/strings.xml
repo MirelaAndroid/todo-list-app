@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ToDo App</string>
+    <string name="add_task">Add</string>
+    <string name="edit_task">Edit</string>
+    <string name="title_hint">Title</string>
+    <string name="description_hint">Secription</string>
+    <string name="time_hint">Set time</string>
+
+</resources>
