@@ -13,9 +13,6 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
-
-        proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        testProguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguardTest-rules.pro'
     }
 
     flavorDimensions "default"
@@ -33,17 +30,12 @@ dependencies {
     kapt "androidx.room:room-compiler:$roomVersion"
 
     androidTestImplementation "androidx.test:runner:$runnerVersion"
+    androidTestImplementation "com.android.support.test:rules:$runnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espressoVersion"
 
-    // Dependencies for local unit tests
     testImplementation "junit:junit:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation "org.hamcrest:hamcrest-all:$hamcrestVersion"
-
-    // Dependencies for Android unit tests
-    androidTestImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "org.mockito:mockito-core:$mockitoVersion"
-    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:$dexMakerVersion"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
     implementation "org.jetbrains.anko:anko-sdk15:$anko_version"

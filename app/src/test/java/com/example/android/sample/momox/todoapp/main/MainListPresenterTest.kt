@@ -16,7 +16,7 @@ import org.mockito.Mock
 import org.mockito.Mockito.verify
 import org.mockito.MockitoAnnotations
 
-class ToDoListPresenterTest {
+class MainListPresenterTest {
 
     @Mock
     private lateinit var tasksRepository: TasksRepository
@@ -42,13 +42,15 @@ class ToDoListPresenterTest {
                 Task( ANY_STRING,  ANY_STRING).apply {})
     }
 
-    @Test fun createPresenter_setsThePresenterToView() {
+    @Test
+    fun setPresenterToView() {
         toDoListPresenter = ToDoListPresenter(tasksRepository, toDoListView)
 
         verify(toDoListView).presenter = toDoListPresenter
     }
 
-    @Test fun loadAllTasksFromRepositoryAndLoadIntoView() {
+    @Test
+    fun loadAllTasksFromRepositoryIntoView() {
         with(toDoListPresenter) {
             showTasks()
         }
@@ -61,44 +63,23 @@ class ToDoListPresenterTest {
         assertTrue(showTasksArgumentCaptor.value.size == tasks.size)
     }
 
-    @Test fun loadActiveTasksFromRepositoryAndLoadIntoView() {
-        with(toDoListPresenter) {
-           showTasks()
-        }
-
-        verify(tasksRepository).getTasks(capture(loadTasksCallbackCaptor))
-        loadTasksCallbackCaptor.value.onTasksLoaded(tasks)
-
-        val showTasksArgumentCaptor = argumentCaptor<List<Task>>()
-        verify(toDoListView).showTasks(capture(showTasksArgumentCaptor))
-    }
-
-    @Test fun loadCompletedTasksFromRepositoryAndLoadIntoView() {
-        with(toDoListPresenter) {
-            showTasks()
-        }
-
-        verify(tasksRepository).getTasks(capture(loadTasksCallbackCaptor))
-        loadTasksCallbackCaptor.value.onTasksLoaded(tasks)
-
-        val showTasksArgumentCaptor = argumentCaptor<List<Task>>()
-        verify(toDoListView).showTasks(capture(showTasksArgumentCaptor))
-    }
-
-    @Test fun clickOnFab_ShowsAddTaskUi() {
+    @Test
+    fun clickOnFab() {
         toDoListPresenter.addTask()
 
         verify(toDoListView).addTask()
     }
 
 
-    @Test fun delete_task() {
+    @Test
+    fun deleteTask() {
         toDoListPresenter.deleteTask( ANY_STRING)
 
         verify(tasksRepository).deleteTask( ANY_STRING)
     }
 
-    @Test fun clickOnTask_ShowsDetailUi() {
+    @Test
+    fun onShowDetails() {
         val requestedTask = Task(ANY_STRING,  ANY_STRING)
 
         toDoListPresenter.openTask(requestedTask)
