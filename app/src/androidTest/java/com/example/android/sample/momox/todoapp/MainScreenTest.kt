@@ -1,4 +1,4 @@
-package com.example.android.sample.momox.todoapp
+package com.example.android.sample.my.todoapp
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.*
@@ -7,7 +7,7 @@ import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.filters.LargeTest
 import androidx.test.rule.ActivityTestRule
 import androidx.test.runner.AndroidJUnit4
-import com.example.android.sample.momox.todoapp.main.MainActivity
+import com.example.android.sample.my.todoapp.main.MainActivity
 
 import androidx.test.espresso.matcher.ViewMatchers.withText
 import org.junit.Rule

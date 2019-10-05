@@ -1,11 +1,13 @@
-package com.example.android.sample.momox.todoapp.main
+package com.example.android.sample.my.todoapp.main
 
-import com.example.android.sample.momox.todoapp.any
-import com.example.android.sample.momox.todoapp.argumentCaptor
-import com.example.android.sample.momox.todoapp.capture
-import com.example.android.sample.momox.todoapp.data.Task
-import com.example.android.sample.momox.todoapp.data.TasksDataSource.LoadTasksCallback
-import com.example.android.sample.momox.todoapp.data.TasksRepository
+import com.example.android.sample.my.todoapp.any
+import com.example.android.sample.my.todoapp.argumentCaptor
+import com.example.android.sample.my.todoapp.capture
+import com.example.android.sample.my.todoapp.data.Task
+import com.example.android.sample.my.todoapp.data.TasksDataSource.LoadTasksCallback
+import com.example.android.sample.my.todoapp.data.TasksRepository
+import com.example.android.sample.my.todoapp.main.ToDoListContract
+import com.example.android.sample.my.todoapp.main.ToDoListPresenter
 import com.google.common.collect.Lists
 import org.junit.Assert.assertTrue
 import org.junit.Before
@@ -38,8 +40,8 @@ class MainListPresenterTest {
 
         toDoListPresenter = ToDoListPresenter(tasksRepository, toDoListView)
 
-        tasks = Lists.newArrayList(Task( ANY_STRING,  ANY_STRING),
-                Task( ANY_STRING,  ANY_STRING).apply {})
+        tasks = Lists.newArrayList(Task(ANY_STRING, ANY_STRING),
+                Task(ANY_STRING, ANY_STRING).apply {})
     }
 
     @Test
@@ -80,7 +82,7 @@ class MainListPresenterTest {
 
     @Test
     fun onShowDetails() {
-        val requestedTask = Task(ANY_STRING,  ANY_STRING)
+        val requestedTask = Task(ANY_STRING, ANY_STRING)
 
         toDoListPresenter.openTask(requestedTask)
 

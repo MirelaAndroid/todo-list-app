@@ -1,4 +1,4 @@
-package com.example.android.sample.momox.todoapp
+package com.example.android.sample.my.todoapp
 
 /**
  * Helper functions that are workarounds to kotlin Runtime Exceptions when using kotlin.
